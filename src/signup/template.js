@@ -9,7 +9,7 @@ var signupForm = yo` <div class="col s12 m7">
       <h2>Regístrate para ver fotod de tus compañeros</h2>
       <div class="section">
         <a class="btn btn-fb hide-on-small-only" href="#">Iniciar sesión con facebook</a>
-        <a class="btn btn-fb hide-on-med-and-up" href="#">Iniciar sesión</a>
+        <a class="btn btn-fb hide-on-med-and-up" href="#"><i class="fa fa-facebook-official"></i>Iniciar sesión</a>
       </div>
       <div class="divider"></div>
       <div class="section">
