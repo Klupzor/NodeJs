@@ -2728,17 +2728,34 @@ module.exports = [
 
 },{}],17:[function(require,module,exports){
 var page = require('page');
-var yo = require('yo-yo');
-var empty = require('empty-element');
-
 var main = document.getElementById('main-container');
 
 page('/', function (ctx, next) {
-  main.innerHTML = 'Home <a href="/signup">Signup</a>';
+    main.innerHTML = 'Home <a href="/signup">Signup</a>';
 });
 
+},{"page":12}],18:[function(require,module,exports){
+var page = require('page');
+
+require('./homepage');
+require('./signup');
+
+page();
+
+},{"./homepage":17,"./signup":19,"page":12}],19:[function(require,module,exports){
+var page = require('page');
+var empty = require('empty-element');
+var template = require('./template');
+
 page('/signup', function (ctx, next) {
-  var el = yo`<div class="container">
+    var main = document.getElementById('main-container');
+    empty(main).appendChild(template);
+});
+
+},{"./template":20,"empty-element":3,"page":12}],20:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = yo`<div class="container">
     <div class="row">
       <div class="col s10 push-s1">
         <div class="row">
@@ -2778,11 +2795,7 @@ page('/signup', function (ctx, next) {
       </div>
     </div>
   </div>`;
-  empty(main).appendChild(el);
-});
 
-page();
-
-},{"empty-element":3,"page":12,"yo-yo":15}]},{},[17])
+},{"yo-yo":15}]},{},[18])
 
 //# sourceMappingURL=app.js.map
