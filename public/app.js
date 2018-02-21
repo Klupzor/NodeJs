@@ -2769,6 +2769,8 @@ var empty = require('empty-element');
 var template = require('./template');
 
 page('/signin', function (ctx, next) {
+    // title('Platzigram-Signin')
+    document.title = 'Platzigram-Signin';
     var main = document.getElementById('main-container');
     empty(main).appendChild(template);
 });
@@ -2797,7 +2799,7 @@ var signinForm = yo` <div class="col s12 m7">
 </div>
 <div class="row">
   <div class="login-box">
-    No tienes una cuenta? <a href="/signin">Regístar</a>
+    No tienes una cuenta? <a href="/signup">Regístar</a>
   </div>
 </div>
 </div>`;
@@ -2810,6 +2812,8 @@ var empty = require('empty-element');
 var template = require('./template');
 
 page('/signup', function (ctx, next) {
+    // title('Platzigram-Signup')
+    document.title = 'Platzigram-Signup';
     var main = document.getElementById('main-container');
     empty(main).appendChild(template);
 });
