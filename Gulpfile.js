@@ -25,16 +25,6 @@ gulp.task('assets', function (){
     .pipe(gulp.dest('public'))
 })
 
-// gulp.task('scripts', function(){
-//     browserify('./src/index.js')
-//     .transform(babel, {presents: ["env"]})
-//     .bundle()
-//     .pipe(source('index.js'))
-//     .pipe(rename('app.js'))
-//     .pipe(gulp.dest('public'))
-
-// })
-
 function compile(watch) {
     var bundler = watchify(browserify('./src/index.js', { debug: true }).transform(babel));
   
@@ -67,4 +57,4 @@ function compile(watch) {
   gulp.task('watch', function() { return watch(); });
 
 
-gulp.task('default', ['styles', 'assets', 'watch'])
+gulp.task('default', ['styles', 'assets', 'build'])

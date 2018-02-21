@@ -1318,13 +1318,15 @@ process.umask = function() { return 0; };
 var page = require('page');
 
 var main = document.getElementById('main-container');
+console.log('en java');
+main.innerHTML = 'hola';
 
 page('/', function (ctx, next) {
-    main.innerHTML = 'Home';
+    main.innerHTML = 'Home <a href="/signup">Signup</a>';
 });
 
 page('/signup', function (ctx, next) {
-    main.innerHTML = 'Signup';
+    main.innerHTML = 'Signup <a href="/">Home</a>';
 });
 
 page();
