@@ -2739,10 +2739,72 @@ var page = require('page');
 
 require('./homepage');
 require('./signup');
+require('./signin');
 
 page();
 
-},{"./homepage":17,"./signup":19,"page":12}],19:[function(require,module,exports){
+},{"./homepage":17,"./signin":20,"./signup":22,"page":12}],19:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = function landing(box) {
+  yo`<div class="container">
+    <div class="row">
+      <div class="col s10 push-s1">
+        <div class="row">
+          <div class="col m5 hiden-on-small-only">
+            <div class="iphone">
+              <img src="https://bdt.computerhoy.com/sites/default/files/styles/image_scale_150x300/public/iphone-x-apple.png?itok=jhcA8_WD" alt="img-telefono">
+            </div>
+          </div>
+         ${box}
+        </div>
+      </div>
+    </div>
+  </div>`;
+};
+
+},{"yo-yo":15}],20:[function(require,module,exports){
+var page = require('page');
+var empty = require('empty-element');
+var template = require('./template');
+
+page('/signin', function (ctx, next) {
+    var main = document.getElementById('main-container');
+    empty(main).appendChild(template);
+});
+
+},{"./template":21,"empty-element":3,"page":12}],21:[function(require,module,exports){
+var yo = require('yo-yo');
+var landing = require('../landing');
+
+var signinForm = yo` <div class="col s12 m7">
+<div class="row">
+  <div class="signup-box">
+    <h1 class="platzigram">Platzigram</h1>
+    <form class="signup-form" action="index.html" method="post">
+      <div class="section">
+        <a class="btn btn-fb hide-on-small-only" href="#">Iniciar sesión con facebook</a>
+        <a class="btn btn-fb hide-on-med-and-up" href="#">Iniciar sesión</a>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <input type="text" name="username" placeholder="Nombre de usuario">
+        <input type="password" name="password" placeholder="Contraseña">
+        <button class="btn waves-effect waves-ligth btn-signup" type="submit" name="button">Iniciar sesión</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="login-box">
+    No tienes una cuenta? <a href="/signin">Regístar</a>
+  </div>
+</div>
+</div>`;
+
+module.exports = landing(signinForm);
+
+},{"../landing":19,"yo-yo":15}],22:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
@@ -2752,50 +2814,40 @@ page('/signup', function (ctx, next) {
     empty(main).appendChild(template);
 });
 
-},{"./template":20,"empty-element":3,"page":12}],20:[function(require,module,exports){
+},{"./template":23,"empty-element":3,"page":12}],23:[function(require,module,exports){
 var yo = require('yo-yo');
+var landing = require('../landing');
 
-module.exports = yo`<div class="container">
-    <div class="row">
-      <div class="col s10 push-s1">
-        <div class="row">
-          <div class="col m5 hiden-on-small-only">
-            <div class="iphone">
-              <img src="https://bdt.computerhoy.com/sites/default/files/styles/image_scale_150x300/public/iphone-x-apple.png?itok=jhcA8_WD" alt="img-telefono">
-            </div>
-          </div>
-          <div class="col s12 m7">
-            <div class="row">
-              <div class="signup-box">
-                <h1 class="platzigram">Platzigram</h1>
-                <form class="signup-form" action="index.html" method="post">
-                  <h2>Regístrate para ver fotod de tus compañeros</h2>
-                  <div class="section">
-                    <a class="btn btn-fb hide-on-small-only" href="#">Iniciar sesión con facebook</a>
-                    <a class="btn btn-fb hide-on-med-and-up" href="#">Iniciar sesión</a>
-                  </div>
-                  <div class="divider"></div>
-                  <div class="section">
-                    <input type="email" name="email" placeholder="Correo electrónico">
-                    <input type="text" name="name" placeholder="Nombre completo">
-                    <input type="text" name="username" placeholder="Nombre de usuario">
-                    <input type="password" name="password" placeholder="Contraseña">
-                    <button class="btn waves-effect waves-ligth btn-signup" type="submit" name="button">Regístrar</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="row">
-              <div class="login-box">
-                Tienes una cuenta? <a href="/signin">Entar</a>
-              </div>
-            </div>
-          </div>
-        </div>
+var signupForm = yo` <div class="col s12 m7">
+<div class="row">
+  <div class="signup-box">
+    <h1 class="platzigram">Platzigram</h1>
+    <form class="signup-form" action="index.html" method="post">
+      <h2>Regístrate para ver fotod de tus compañeros</h2>
+      <div class="section">
+        <a class="btn btn-fb hide-on-small-only" href="#">Iniciar sesión con facebook</a>
+        <a class="btn btn-fb hide-on-med-and-up" href="#">Iniciar sesión</a>
       </div>
-    </div>
-  </div>`;
+      <div class="divider"></div>
+      <div class="section">
+        <input type="email" name="email" placeholder="Correo electrónico">
+        <input type="text" name="name" placeholder="Nombre completo">
+        <input type="text" name="username" placeholder="Nombre de usuario">
+        <input type="password" name="password" placeholder="Contraseña">
+        <button class="btn waves-effect waves-ligth btn-signup" type="submit" name="button">Regístrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="login-box">
+    Tienes una cuenta? <a href="/signin">Entar</a>
+  </div>
+</div>
+</div>`;
 
-},{"yo-yo":15}]},{},[18])
+module.exports = landing(signupForm);
+
+},{"../landing":19,"yo-yo":15}]},{},[18])
 
 //# sourceMappingURL=app.js.map
