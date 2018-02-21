@@ -2747,7 +2747,7 @@ page();
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
-  yo`<div class="container">
+  return yo`<div class="container">
     <div class="row">
       <div class="col s10 push-s1">
         <div class="row">
@@ -2846,7 +2846,10 @@ var signupForm = yo` <div class="col s12 m7">
 </div>
 </div>`;
 
-module.exports = landing(signupForm);
+// module.exports = signupForm;
+var x = landing(signupForm);
+// console.log(x)
+module.exports = x;
 
 },{"../landing":19,"yo-yo":15}]},{},[18])
 

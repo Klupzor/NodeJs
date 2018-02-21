@@ -29,4 +29,7 @@ var signupForm = yo` <div class="col s12 m7">
 </div>
 </div>`
 
-module.exports = landing(signupForm)
+// module.exports = signupForm;
+var x = landing(signupForm)
+// console.log(x)
+module.exports = x
