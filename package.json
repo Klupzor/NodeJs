@@ -4,19 +4,20 @@
   "description": "Curso avanzado Javascript con node",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "klupzor",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.2",
     "materialize-css": "^0.100.2",
+    "page": "^1.8.3",
     "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
     "babelify": "^8.0.0",
     "browserify": "^16.1.0",
     "gulp": "^3.9.1",
@@ -26,5 +27,13 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.10.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Klupzor/Pagina-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Klupzor/Pagina-node/issues"
+  },
+  "homepage": "https://github.com/Klupzor/Pagina-node#readme"
 }
