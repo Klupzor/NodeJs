@@ -18,17 +18,19 @@ page('/', function (ctx,next){
         },
         url: 'office.jpg',
         likes: 10,
-        liked: false
+        liked: false,
+        createdAt: new Date()
     },
     {
         user: {
-            username: 'andres',
+            username: 'pedro',
             avatar: 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/12/iron-man-armadura.jpg'
 
         },
         url: 'office.jpg',
         likes: 10,
-        liked: true
+        liked: true,
+        createdAt: new Date().setDate(new Date().getDate() - 10)
     }
 
 ]
