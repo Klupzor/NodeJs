@@ -20,7 +20,8 @@ MESSAGES['en-US'] = en
 var locale = 'es'
 
 module.exports = {
-    message: function (text, opts = {}) {
+    message: function (text, opts) {
+        opts = opts || {}
         var msg = new IntlMessageFormat(MESSAGES[locale][text], locale, null)
         return msg.format(opts)
     },
