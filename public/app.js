@@ -2744,7 +2744,7 @@ page('/', function (ctx, next) {
         },
         url: 'office.jpg',
         likes: 10,
-        liked: true
+        liked: false
     }, {
         user: {
             username: 'andres',
@@ -2858,25 +2858,17 @@ module.exports = function pictuareCard(pic) {
         </a>
         <small class="right time">Hace un dia</small>
         <p>
-          <a class="left" href="" onclick=${like}><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-          <a class="left" href="" onclick=${dislike}><i class="fa fa-heart-o dis" aria-hidden="true"></i></a>
+          <a class="left" href="" onclick=${like.bind(false, true)}><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+          <a class="left" href="" onclick=${like.bind(false, false)}><i class="fa fa-heart-o dis" aria-hidden="true"></i></a>
           <span class="left likes">${pic.likes} me gusta</span>
         </p>
         </div>    
       </div>
       `;
   }
-  function like() {
-    pic.liked = true;
-    pic.likes++;
-    var newEl = render(pic);
-    yo.update(el, newEl);
-    return false;
-  }
-
-  function dislike() {
-    pic.liked = false;
-    pic.likes--;
+  function like(liked) {
+    pic.liked = liked;
+    pic.likes += liked ? 1 : -1;
     var newEl = render(pic);
     yo.update(el, newEl);
     return false;
