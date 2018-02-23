@@ -9,5 +9,29 @@ page('/', function (ctx,next){
     // title('Platzigram-Signin')
     document.title='Platzigram'
     var main = document.getElementById('main-container')
-    empty(main).appendChild(template)
+
+    var pictures = [{
+        user: {
+            username: 'andres',
+            avatar: 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/12/iron-man-armadura.jpg'
+
+        },
+        url: 'office.jpg',
+        likes: 10,
+        liked: true
+    },
+    {
+        user: {
+            username: 'andres',
+            avatar: 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/12/iron-man-armadura.jpg'
+
+        },
+        url: 'office.jpg',
+        likes: 10,
+        liked: true
+    }
+
+]
+
+    empty(main).appendChild(template(pictures))
 })
