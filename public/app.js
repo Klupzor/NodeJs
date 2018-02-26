@@ -13318,10 +13318,25 @@ async function asyncLoad(ctx, next) {
 var yo = require('yo-yo');
 var layout = require('../layout');
 var picture = require('../picture-card');
+var translate = require('../translate').message;
 
 module.exports = function (pictures) {
     var el = yo`
 <div class="container timeline">
+    <div class="row">
+        <div class="col s12 m10 offset-m1 l8 offset-12 center-align">
+            <form enctype="multipart/form-data" class="form-upload">
+                <div id="fileName" class="fileUpload btn btn-flat cyan">
+                    <span><i class="fa fa-camera" aria-hidden="true"></i>${translate('upload-picture')}</span>
+                    <input name="picture" id="file" type="file" class="upload" />
+                </div>
+                <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">${translate('upload')}</button>
+                <button id="btnCancel" type="button" class="btn btn-flat red hide"><i class="fa fa-times" aria-hidden="true"></i>${translate('upload')}</button>
+
+            </form>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col s12 m10 offset-m1 l6 offset-l3">
             ${pictures.map(function (pic) {
@@ -13334,7 +13349,7 @@ module.exports = function (pictures) {
     return layout(el);
 };
 
-},{"../layout":77,"../picture-card":78,"yo-yo":69}],75:[function(require,module,exports){
+},{"../layout":77,"../picture-card":78,"../translate":85,"yo-yo":69}],75:[function(require,module,exports){
 var page = require('page');
 
 require('./homepage');
@@ -13526,7 +13541,9 @@ module.exports = {
         'signup.have-account': 'Already have an account?',
         'signin': 'Signin',
         'signin.not-have-account': '¿Don\'t have an account?',
-        'language': 'Language'
+        'language': 'Language',
+        'upload-picture': 'Upload Picture',
+        'upload': 'Upload'
 };
 
 },{}],84:[function(require,module,exports){
@@ -13546,7 +13563,9 @@ module.exports = {
     'signup.have-account': '¿Tienes una cuenta?',
     'signin': 'Entrar',
     'signin.not-have-account': '¿No tienes una cuenta?',
-    'language': 'Idioma'
+    'language': 'Idioma',
+    'upload-picture': 'Subir foto',
+    'upload': 'Subir'
 };
 
 },{}],85:[function(require,module,exports){
