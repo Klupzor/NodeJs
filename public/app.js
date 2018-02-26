@@ -13325,13 +13325,13 @@ module.exports = function (pictures) {
 <div class="container timeline">
     <div class="row">
         <div class="col s12 m10 offset-m1 l8 offset-12 center-align">
-            <form enctype="multipart/form-data" class="form-upload">
+            <form enctype="multipart/form-data" class="form-upload" id="formUpload">
                 <div id="fileName" class="fileUpload btn btn-flat cyan">
                     <span><i class="fa fa-camera" aria-hidden="true"></i>${translate('upload-picture')}</span>
-                    <input name="picture" id="file" type="file" class="upload" />
+                    <input name="picture" id="file" type="file" class="upload" onchange=${onchange}/>
                 </div>
                 <button id="btnUpload" type="submit" class="btn btn-flat cyan hide">${translate('upload')}</button>
-                <button id="btnCancel" type="button" class="btn btn-flat red hide"><i class="fa fa-times" aria-hidden="true"></i>${translate('upload')}</button>
+                <button id="btnCancel" type="button" class="btn btn-flat red hide" onclick=${cancel}><i class="fa fa-times" aria-hidden="true"></i>${translate('upload')}</button>
 
             </form>
         </div>
@@ -13345,6 +13345,22 @@ module.exports = function (pictures) {
         </div>
     </div>
 </div>`;
+
+    function toogleButtons() {
+
+        document.getElementById('fileName').classList.toggle('hide');
+        document.getElementById('btnUpload').classList.toggle('hide');
+        document.getElementById('btnCancel').classList.toggle('hide');
+    }
+
+    function cancel() {
+        toogleButtons();
+        document.getElementById('formUpload').reset();
+    }
+
+    function onchange() {
+        toogleButtons();
+    }
 
     return layout(el);
 };
